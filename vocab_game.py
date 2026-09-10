@@ -100,12 +100,12 @@ ans2 = st.text_input(
     value=st.session_state.ans2_val,
 )
 ans3 = st.text_input(
-    "ข้อ 1: An `L_m_n`a is yellow and sour.🍋",
-    value=st.session_state.ans1_val,
+    "ข้อ 3: An `L_m_n`a is yellow and sour.🍋",
+    value=st.session_state.ans3_val,
 )
-ans2 = st.text_input(
-    "ข้อ 2: Cats love to eat `P_ncil`.✏️",
-    value=st.session_state.ans2_val,
+ans4 = st.text_input(
+    "ข้อ 4: Write with a `P_ncil`.✏️",
+    value=st.session_state.ans4_val,
 )
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
