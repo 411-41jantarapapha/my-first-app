@@ -28,12 +28,14 @@ def reset_game():
 # 📌 ฟังก์ชัน MessageBox (Dialog)
 # ----------------------------------------------------
 @st.dialog("📊 สรุปผลการเล่นเกม")
-def show_result_dialog(ans1, ans2):
+def show_result_dialog(ans1, ans2, ans3, ans4):
     st.balloons()
     score = 0
 
     u_ans1 = ans1.strip().lower()
     u_ans2 = ans2.strip().lower()
+    u_ans3 = ans3.strip().lower()
+    u_ans4 = ans4.strip().lower()
 
     # ตรวจข้อ 1
     if u_ans1 == "apple":
@@ -49,18 +51,18 @@ def show_result_dialog(ans1, ans2):
     else:
         st.error(f"❌ ข้อ 2: ยังไม่ถูกต้อง (คุณตอบ '{u_ans2}')")
  # ตรวจข้อ 3
-    if u_ans1 == "Lemon":
+    if u_ans3 == "lemon":
         st.success("✅ ข้อ 3: ถูกต้อง")
         score += 1
     else:
-        st.error(f"❌ ข้อ 3: ยังไม่ถูกต้อง (คุณตอบ '{u_ans1}')")
+        st.error(f"❌ ข้อ 3: ยังไม่ถูกต้อง (คุณตอบ '{u_ans3}')")
 
     # ตรวจข้อ 4
-    if u_ans2 == "Pencil":
+    if u_ans4 == "pencil":
         st.success("✅ ข้อ 4: ถูกต้อง")
         score += 1
     else:
-        st.error(f"❌ ข้อ 4: ยังไม่ถูกต้อง (คุณตอบ '{u_ans2}')")
+        st.error(f"❌ ข้อ 4: ยังไม่ถูกต้อง (คุณตอบ '{u_ans4}')")
 
     # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มตรวจข้อ 3, 4 ตรงนี้
 
@@ -98,20 +100,18 @@ ans2 = st.text_input(
     value=st.session_state.ans2_val,
 )
 ans3 = st.text_input(
-    "ข้อ 1: An `L_m_n` a day keeps the doctor away. 🍎",
+    "ข้อ 1: An `L_m_n`a is yellow and sour.🍋",
     value=st.session_state.ans1_val,
 )
 ans2 = st.text_input(
-    "ข้อ 2: Cats love to eat `P_ncil`. 🐟",
+    "ข้อ 2: Cats love to eat `P_ncil`.✏️",
     value=st.session_state.ans2_val,
 )
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
 st.session_state.ans3_val = ans3
-st.session_state.ans2_va4 = ans4
-# ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มข้อ 3, 4 ตรงนี้
-
+st.session_state.ans4_va1 = ans4
 
 # 4. ปุ่มส่งคำตอบ
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
@@ -124,7 +124,7 @@ if "start" in st.session_state and not st.session_state.get("is_ended", False):
 
 # 5. แสดง Dialog ผลลัพธ์
 if st.session_state.get("is_ended", False):
-    show_result_dialog(ans1, ans2)
+    show_result_dialog(ans1, ans2, ans3, ans4)
 
 st.divider()
 st.write("นางสาวจันทรปภา จีนขี เลขที่ 41 ม.4/11")
